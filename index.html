@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Часові пояси — Годинники</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Часові пояси</h1>
+    <p id="user-tz">Ваш часовий пояс: <strong id="user-tz-name">...</strong></p>
+  </header>
+
+  <main>
+    <section id="controls" class="card">
+      <div class="control-row">
+        <input id="tz-search" type="search" placeholder="Пошук часових поясів" />
+        <button id="add-tz">Додати</button>
+        <button id="clear-all" title="Прибрати всі">Очистити</button>
+      </div>
+      <div class="select-wrap">
+        <select id="tz-select" size="10" aria-label="Список часових поясів"></select>
+      </div>
+    </section>
+
+    <section id="clocks" class="grid">
+    
+    </section>
+  </main>
+
+  <footer>
+    <p>Кіяшко Олексій</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
