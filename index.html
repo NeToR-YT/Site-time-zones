@@ -24,8 +24,24 @@
       </div>
     </section>
 
+    <section id="planner" class="card">
+      <h2>Планувальник зустрічей</h2>
+      <div class="planner-row">
+        <label for="meeting-time">Час зустрічі (локально):</label>
+        <input id="meeting-time" type="datetime-local" />
+        <label for="meeting-duration">Тривалість:</label>
+        <select id="meeting-duration">
+          <option value="15">15 хв</option>
+          <option value="30">30 хв</option>
+          <option value="60" selected>60 хв</option>
+          <option value="120">120 хв</option>
+        </select>
+        <button id="plan-btn">Планувати</button>
+      </div>
+      <div id="plan-results" class="plan-results" aria-live="polite"></div>
+    </section>
+
     <section id="clocks" class="grid">
-    
     </section>
   </main>
 

@@ -30,11 +30,17 @@ main{
 #clear-all{
     background:#777}
 .grid{
-    flex:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    flex:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;
+    justify-items:center;align-items:start;
+}
 .clock-card{
-    display:flex;flex-direction:column;gap:6px;padding:12px;margin-left: 30px;}
+    display:flex;flex-direction:column;gap:6px;padding:12px;margin:0;box-sizing:border-box;width:100%;max-width:320px;
+}
 .clock-card h3{
     margin:0;font-size:0.95rem}
+.analog{
+    width:120px;height:120px;flex:0 0 120px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 2px 6px rgba(12,24,48,0.06);align-self:center}
+.analog canvas{display:block;width:100%;height:100%}
 .time{
     font-weight:700;font-size:1.4rem}
 .date{
@@ -43,10 +49,47 @@ main{
     display:flex;justify-content:space-between;align-items:center;margin-top:6px}
 .remove-btn{
     background:#ffecec;border:0;color:#b00;padding:4px 8px;border-radius:6px;cursor:pointer}
+.favorite-btn{
+    background:transparent;border:0;font-size:1.2rem;cursor:pointer;color:#ffd573;padding:4px 6px}
+.favorite-btn.fav{color:#ff7a00}
+.planner-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.plan-results{margin-top:8px}
+.plan-results .row{display:flex;justify-content:space-between;padding:6px 8px;border-radius:6px}
+.plan-results .row.in-work{background:linear-gradient(90deg, rgba(11,102,255,0.06), rgba(11,102,255,0.03));}
+.plan-results .tz{font-weight:600}
+.plan-results .local{color:var(--muted)}
 footer{
     padding:12px 16px;color:var(--muted);font-size:0.9rem}
 
 @media (max-width:800px){
   main{flex-direction:column}
   #controls{width:100%}
+}
+
+/* Mobile tweaks for narrow screens */
+@media (max-width:480px){
+    header{padding:12px}
+    header h1{font-size:1.1rem}
+    header p{font-size:0.9rem}
+
+    /* Stack controls vertically for easy tapping */
+    .control-row{display:flex;flex-direction:column;align-items:stretch}
+    .control-row > *{width:100%}
+    #tz-search{padding:10px;font-size:1rem}
+    #add-tz,#clear-all{padding:10px;border-radius:8px}
+
+    /* Make select more usable on small screens */
+    .select-wrap{max-height:220px;overflow:auto}
+    #tz-select{font-size:0.95rem}
+
+    /* Adjust grid to smaller cards and remove extra offsets */
+    .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+    .clock-card{margin:0;padding:10px}
+    .analog{width:88px;height:88px;flex:0 0 88px}
+    .analog canvas{width:100%;height:100%}
+
+    .time{font-size:1.1rem}
+    .planner-row{gap:6px}
+
+    footer{padding:10px;font-size:0.85rem}
 }
